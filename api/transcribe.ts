@@ -46,13 +46,12 @@ export default async function handler(
   try {
     const client = new AssemblyAI({ apiKey })
     const submitted = await client.transcripts.submit({
-      audio: upload_url,
+      audio_url: upload_url,
       speech_models: ['universal-2'],
       speaker_labels: options.speaker_labels,
-      utterances: options.speaker_labels,
       ...(options.language_detection
         ? { language_detection: true }
-        : { language_detection: false, language_code: 'en_us' }),
+        : { language_detection: false, language_code: 'en' }),
       punctuate: options.punctuate,
       format_text: options.format_text,
     })
