@@ -50,7 +50,9 @@ export default async function handler(
       speech_models: ['universal-2'],
       speaker_labels: options.speaker_labels,
       utterances: options.speaker_labels,
-      language_detection: options.language_detection,
+      ...(options.language_detection
+        ? { language_detection: true }
+        : { language_detection: false, language_code: 'en_us' }),
       punctuate: options.punctuate,
       format_text: options.format_text,
     })

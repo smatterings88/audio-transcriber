@@ -40,7 +40,7 @@ export function useTranscription() {
 
   const [options, setOptions] = useState<TranscriptionOptions>({
     speaker_labels: false,
-    language_detection: false,
+    language_detection: true,
     punctuate: true,
     format_text: true,
   })
